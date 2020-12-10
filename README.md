@@ -4,11 +4,13 @@
 | Column     | Type   | Options     |
 | ---------- | ------ | ----------- |
 | email      | string | null: false |
-| password   | string | null: false |
+| encrypted_password   | string | null: false |
 | nickname   | string | null: false |
-| name（漢字）| string | null: false |
-| name (カナ) | string | null: false |
-| birthday   | datetime | null: false |
+| first_name_kanzi| string | null: false |
+| family_name_kanzi| string | null: false |
+| first_name_kana| string | null: false |
+| family_name_kana| string | null: false |
+| birthday   | date | null: false |
 
 ### Association
 
@@ -19,19 +21,18 @@
 - has_one :Address
 
 
-## Items テーブル
+## items テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| Item_name  | string     | null: false                    |
+| name  | string     | null: false                    |
 | price      | integer    | null: false                    |
-| 出品者      | string     | null: false                    |
 | category   | string     | null: false                    |
-| item_text  | text       | null: false                    |
-| 状態        | text       | null: false                    |
-| 配送料      | integer    | null: false                    |
-| 地域        | string     | null: false                    |
-| 発送の目安   | text       | null: false                    |
+| text  | text       | null: false                    |
+| state        | text       | null: false                    |
+| delivery_charge      | integer    | null: false                    |
+| area        | string     | null: false                    |
+| send_date   | text       | null: false                    |
 | image      | ActiveStorage                               |
 | user       | references | null: false, foreign_key: true |
 
@@ -61,17 +62,15 @@
 
 | Orders    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| cardNo    | integer    | null: false,                   |
-| address   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
-| items     | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :User
-- belongs_to :Address
-- has_many :Items
+- has_one :Address
+- belongs_to :Items
 
 ## comments テーブル
 
