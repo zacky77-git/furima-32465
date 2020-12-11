@@ -18,7 +18,6 @@
 - has_many :orders
 <!-- - has_many :favorites -->
 <!-- - has_many :comments -->
-- has_one :address
 
 
 ## items テーブル
@@ -46,17 +45,17 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| post_code | integer    | null: false,                   |
-| city      | text       | null: false,                   |
-| address   | integer    | null: false,                   |
-| building  | text       | null: false,                   |
-| phoneNo   | integer    | null: false,                   |
-| user      | references | null: false, foreign_key: true |
-| items     | references | null: false, foreign_key: true |
+| post_code | integer    | null: false,                   |<!-- 郵便番号 >
+| area_id   | integer    | null: false                    |<!-- 都道府県 >
+| district  | text       | null: false,                   |<!-- 市区町村 >
+| area_code | integer    | null: false,                   |<!-- 番地 >
+| building  | string     | null: false,                   |<!-- マンションなど >
+| phone_number   | string    | null: false,               |<!-- 電話番号 >
+
 
 ### Association
 
--
+
 - belongs_to :order
 
 
