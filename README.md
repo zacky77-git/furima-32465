@@ -14,51 +14,50 @@
 
 ### Association
 
-- has_many :Items
-- has_many :Orders
-- has_many :Favorites
-- has_many :Comments
-- has_one :Address
+- has_many :items
+- has_many :orders
+- has_many :favorites
+- has_many :comments
+- has_one :address
 
 
 ## items テーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| name  | string     | null: false                    |
-| price      | integer    | null: false                    |
-| category   | string     | null: false                    |
-| text  | text       | null: false                    |
-| state        | text       | null: false                    |
-| delivery_charge      | integer    | null: false                    |
-| area        | string     | null: false                    |
-| send_date   | text       | null: false                    |
-| image      | ActiveStorage                               |
-| user       | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| price           | integer    | null: false                    |
+| category_id     | integer    | null: false                    |
+| text            | text       | null: false                    |
+| state_id        | integer    | null: false                    |
+| delivery_charge | integer    | null: false                    |
+| area_id         | integer    | null: false                    |
+| send_date       | integer    | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :User
-- belongs_to :Order
-- has_many :Comments
-- has_many :Favorites
+- belongs_to :user
+- belongs_to :order
+- has_many :comments
+- has_many :favorites
 
-## Address テーブル
+## address テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | address   | text       | null: false,                   |
 | phoneNo   | integer    | null: false,                   |
-| user      | references | null: false, foreign_key: true |
-| items     | references | null: false, foreign_key: true |
+| user_id   | references | null: false, foreign_key: true |
+| items_id  | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :User
-- has_many :Orders
+- has_one :user
+- has_many :orders
 
 
-## Orders テーブル
+## orders テーブル
 
 | Orders    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -68,9 +67,9 @@
 
 ### Association
 
-- belongs_to :User
-- has_one :Address
-- belongs_to :Items
+- belongs_to :user
+- has_one :address
+- belongs_to :items
 
 ## comments テーブル
 
@@ -82,10 +81,10 @@
 
 ### Association
 
-- belongs_to :User
-- belongs_to :Item
+- belongs_to :user
+- belongs_to :item
 
-## Favorite テーブル
+## favorite テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -94,5 +93,5 @@
 
 ### Association
 
-- belongs_to :User
-- belongs_to :Item
+- belongs_to :user
+- belongs_to :item
