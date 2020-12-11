@@ -45,7 +45,7 @@
 | post_code | string     | null: false,                   |
 | area_id   | integer    | null: false                    |
 | district  | string     | null: false,                   |
-| area_code | integer    | null: false,                   |
+| area_code | string    | null: false,                   |
 | building  | string     |                                |
 | phone_number   | string    | null: false,               |
 | order     | references | null: false, foreign_key: true |
