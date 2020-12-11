@@ -16,8 +16,8 @@
 
 - has_many :items
 - has_many :orders
-- has_many :favorites
-- has_many :comments
+<!-- - has_many :favorites -->
+<!-- - has_many :comments -->
 - has_one :address
 
 
@@ -39,13 +39,15 @@
 
 - belongs_to :user
 - has_one :order
-- has_many :comments
-- has_many :favorites
+<!-- - has_many :comments -->
+<!-- - has_many :favorites -->
 
 ## address テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
+| address   | text       | null: false,                   |
+| phoneNo   | integer    | null: false,                   |
 | user      | references | null: false, foreign_key: true |
 | items     | references | null: false, foreign_key: true |
 
@@ -69,7 +71,7 @@
 - has_one :address
 - belongs_to :item
 
-## comments テーブル
+<!-- ## comments テーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -92,4 +94,4 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :item
+- belongs_to :item -->
