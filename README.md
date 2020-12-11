@@ -45,14 +45,13 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| post_code | integer    | null: false,                   |<!-- 郵便番号 >
+| post_code | string     | null: false,                   |<!-- 郵便番号 >
 | area_id   | integer    | null: false                    |<!-- 都道府県 >
-| district  | text       | null: false,                   |<!-- 市区町村 >
+| district  | string     | null: false,                   |<!-- 市区町村 >
 | area_code | integer    | null: false,                   |<!-- 番地 >
-| building  | string     | null: false,                   |<!-- マンションなど >
+| building  | string     |                                |<!-- マンションなど >
 | phone_number   | string    | null: false,               |<!-- 電話番号 >
-| user      | references | null: false, foreign_key: true |
-| item      | references | null: false, foreign_key: true |
+| order     | references | null: false, foreign_key: true |
 
 ### Association
 
