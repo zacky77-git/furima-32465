@@ -16,8 +16,7 @@
 
 - has_many :items
 - has_many :orders
-<!-- - has_many :favorites -->
-<!-- - has_many :comments -->
+
 
 
 ## items テーブル
@@ -38,19 +37,17 @@
 
 - belongs_to :user
 - has_one :order
-<!-- - has_many :comments -->
-<!-- - has_many :favorites -->
 
 ## address テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| post_code | string     | null: false,                   |<!-- 郵便番号 >
-| area_id   | integer    | null: false                    |<!-- 都道府県 >
-| district  | string     | null: false,                   |<!-- 市区町村 >
-| area_code | integer    | null: false,                   |<!-- 番地 >
-| building  | string     |                                |<!-- マンションなど >
-| phone_number   | string    | null: false,               |<!-- 電話番号 >
+| post_code | string     | null: false,                   |
+| area_id   | integer    | null: false                    |
+| district  | string     | null: false,                   |
+| area_code | integer    | null: false,                   |
+| building  | string     |                                |
+| phone_number   | string    | null: false,               |
 | order     | references | null: false, foreign_key: true |
 
 ### Association
@@ -73,27 +70,3 @@
 - has_one :address
 - belongs_to :item
 
-<!-- ## comments テーブル
-
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| comment_text | text       | null: false, foreign_key: true |
-| user         | references | null: false, foreign_key: true |
-| items        | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
-
-## favorite テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| user      | references | null: false, foreign_key: true |
-| items     | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item -->
