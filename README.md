@@ -46,7 +46,10 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| address   | text       | null: false,                   |
+| post_code | integer    | null: false,                   |
+| city      | text       | null: false,                   |
+| address   | integer    | null: false,                   |
+| building  | text       | null: false,                   |
 | phoneNo   | integer    | null: false,                   |
 | user      | references | null: false, foreign_key: true |
 | items     | references | null: false, foreign_key: true |
