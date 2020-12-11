@@ -3,7 +3,7 @@
 
 | Column               | Type   | Options     |
 | -------------------- | ------ | ----------- |
-| email                | string | null: false |
+| email                | string | null: false unique: true |
 | encrypted_password   | string | null: false |
 | nickname             | string | null: false |
 | first_name_kanzi     | string | null: false |
@@ -51,7 +51,8 @@
 | area_code | integer    | null: false,                   |<!-- 番地 >
 | building  | string     | null: false,                   |<!-- マンションなど >
 | phone_number   | string    | null: false,               |<!-- 電話番号 >
-
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 ### Association
 
