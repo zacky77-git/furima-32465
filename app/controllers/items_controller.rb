@@ -7,14 +7,15 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  # def create
-  #   @item = Prototype.new(item_params)
-  #   if @item.save
-  #     redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @item = Item.new(item_params)
+    # binding.pry
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 
   private
 
