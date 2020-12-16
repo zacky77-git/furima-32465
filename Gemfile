@@ -60,8 +60,6 @@ group :development do
   gem 'rubocop', require: false
 end
 
-gem 'pry-rails'
-
 gem 'devise'
 
 gem "gimei"
@@ -70,3 +68,5 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
 gem 'active_hash'
+
+gem 'pry-rails'
