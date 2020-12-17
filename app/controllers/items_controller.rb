@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!,  only: :new
+  before_action :authenticate_user!, except: [:index]
   def index
+    @items = Item.includes(:user).order("created_at DESC")
+    # @delivery_charge = DeliveryCharge.faind(@items.delivery_charge_id)
   end
 
   def new
