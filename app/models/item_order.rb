@@ -12,6 +12,7 @@ class ItemOrder
     validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Include hyphen(-)' }, length: { maximum: 11 } 
     validates :user_id, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters.' }
     validates :item_id, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters.' }
+    validates :token
   end
 
   def save
