@@ -9,6 +9,11 @@ RSpec.describe ItemOrder, type: :model do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@item_order).to be_valid
     end
+    it 'buildingは空でも保存できること' do
+      @item_order.building = nil
+      expect(@item_order).to be_valid
+    end
+
 
     it 'post_codeが空だと保存できないこと' do
       @item_order.post_code = nil
@@ -21,7 +26,7 @@ RSpec.describe ItemOrder, type: :model do
       expect(@item_order.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
     end
     it 'area_idが0では保存できないこと' do
-      @item_order.area_id = '0'
+      @item_order.area_id = 0
       @item_order.valid?
       expect(@item_order.errors.full_messages).to include("Area can't be blank")
     end
@@ -55,6 +60,17 @@ RSpec.describe ItemOrder, type: :model do
       @item_order.token = nil
       @item_order.valid?
       expect(@item_order.errors.full_messages).to include("Token can't be blank")
+    end
+
+    it 'user_idが空では登録できないこと' do
+      @item_order.user_id = nil
+      @item_order.valid?
+      expect(@item_order.errors.full_messages).to include("User can't be blank", "User is invalid. Input half-width characters.")
+    end
+    it 'item_idが空では登録できないこと' do
+      @item_order.item_id = nil
+      @item_order.valid?
+      expect(@item_order.errors.full_messages).to include("Item can't be blank", "Item is invalid. Input half-width characters.")
     end
   end
 end
