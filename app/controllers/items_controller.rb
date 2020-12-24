@@ -3,8 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
   def index
-    @items = Item.includes(:user).order("created_at DESC")
-   
+    @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -42,18 +41,16 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :category_id, :text, :state_id, :delivery_charge_id, :area_id, :send_date_id, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :category_id, :text, :state_id, :delivery_charge_id, :area_id, :send_date_id,
+                                 :image).merge(user_id: current_user.id)
   end
 
   def move_to_index
     @item = Item.find(params[:id])
-    unless current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless current_user.id == @item.user_id
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
