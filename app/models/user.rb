@@ -9,7 +9,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname, length: { maximum: 40 }
     validates :birthday
-    with_options format: { with: /\A[ァ-ヶ一-龥々]+\z/, message: '全角文字を使用してください' } do
+    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: '全角文字を使用してください' } do
       validates :first_name_kanzi
       validates :family_name_kanzi
     end
